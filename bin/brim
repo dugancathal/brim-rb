@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'thor'
+require 'brim'
+
+Brim::Runner.start
+

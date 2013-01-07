@@ -1,0 +1,9 @@
+class Create<%= @camel_name %> < ActiveRecord::Migration
+  def change
+    create_table :<%= @snake_name %> do |t|
+      t.string    :name, null: false
+      t.integer
+      t.timestamps
+    end
+  end
+end
