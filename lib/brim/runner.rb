@@ -1,4 +1,3 @@
-require 'brim'
 require 'thor/runner'
 
 class Brim::Runner < ::Thor::Runner
