@@ -8,7 +8,7 @@ class Brim::Runner < ::Thor::Runner
   end
 
   private
-  
+
   def thorfiles *args
     Dir[File.expand_path('../tasks/**/*.rb', __FILE__)]
   end

@@ -7,9 +7,8 @@ module Brim
   
     desc "#{namespace}:create_table NAME", "Create an ActiveRecord Migration for creating a table"
     def create_table name
-      @camel_name = Thor::Util.camel_case name
-      @snake_name = Thor::Util.snake_case name
-      template 'migrations/create_table.erb', "db/migrate/#{filetime}_create_#{@snake_name}.rb"
+      @model_name = name.underscore
+      template 'migrations/create_table.erb', "db/migrate/#{filetime}_create_#{@model_name}.rb"
     end
   
     private

@@ -1,6 +1,6 @@
-class Create<%= @camel_name %> < ActiveRecord::Migration
+class Create<%= @model_name.camelize %> < ActiveRecord::Migration
   def change
-    create_table :<%= @snake_name %> do |t|
+    create_table :<%= @model_name %> do |t|
       t.string    :name, null: false
       t.integer
       t.timestamps
