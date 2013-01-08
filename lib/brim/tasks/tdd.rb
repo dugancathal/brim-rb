@@ -11,7 +11,7 @@ module Brim
     end
   
     desc "#{namespace}:minitest CLASSNAME", "Create an MiniTest test file for CLASSNAME"
-    def rspec name
+    def minitest name
       tdd_template 'minitest', name
     end
 

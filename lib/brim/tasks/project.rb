@@ -11,11 +11,11 @@ module Brim
       @name = name.underscore
       @framework = options[:"test-framework"].underscore
       inside @name do
-        template 'doc/README.md', 'README.md'
-        template 'doc/LICENSE',   'LICENSE'
+        template 'project/README.md', 'README.md'
+        template 'project/LICENSE',   'LICENSE'
 
         inside @framework do
-          template "project/#{@framework}_helper.rb"
+          template "project/#{@framework}_helper.rb.erb" "#{@framework}_helper.rb"
           empty_directory @name
         end
 
