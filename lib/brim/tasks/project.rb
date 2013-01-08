@@ -7,25 +7,17 @@ module Brim
   
     desc "#{namespace}:new NAME", "Create a new Brim project"
     method_option 'test-framework', aliases: '-t', default: 'test'
-    def new name
-      @name = name.underscore
+    def new name_or_path
+      @name = File.basename(name_or_path.underscore)
+      @path = Pathname.new name_or_path
       @framework = options[:"test-framework"].underscore
-      inside @name do
-        template 'project/README.md', 'README.md'
-        template 'project/LICENSE',   'LICENSE'
+      template 'project/README.md', @path.join('README.md')
+      template 'project/LICENSE',   @path.join('LICENSE')
+      template "project/#{@framework}_helper.rb.erb", @path.join(@framework, "#{@framework}_helper.rb")
+      empty_directory @path.join(@framework, @name)
 
-        inside @framework do
-          template "project/#{@framework}_helper.rb.erb" "#{@framework}_helper.rb"
-          empty_directory @name
-        end
-
-        inside 'lib' do
-          template 'project/toplib.erb', "#{@name}.rb"
-          inside @name do
-            template 'project/version.rb.erb', 'version.rb'
-          end
-        end
-      end
+      template 'project/toplib.erb',     @path.join('lib', @name+'.rb')
+      template 'project/version.rb.erb', @path.join('lib', @name, 'version.rb')
     end
   
     private
