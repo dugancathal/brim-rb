@@ -1,4 +1,3 @@
-require 'brim'
 require 'erb'
 
 module Brim

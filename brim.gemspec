@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Brim::VERSION
   gem.authors       = ["ttaylo201"]
   gem.email         = ["Thomas_Taylor2@cable.comcast.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{A collection of Thor scripts for non-Rails projects in Ruby (plus some useful dotfiles}
+  gem.summary       = %q{Can also be used for bash}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
